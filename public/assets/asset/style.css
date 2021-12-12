@@ -15,17 +15,20 @@
   background-blend-mode: overlay;
   height: 500px;
   width: 100%;
-  margin-top: 0;
+
   position: relative; */
 }
-.dev-bg {
-  background: #fa447a;
+.dev-bg-red {
+  background: #ac1a27;
 }
-.graphics-bg {
-  background: #130f32;
+.dev-bg-blue {
+    background: #07315b;
 }
-.marketing-bg {
-  background: #00a0c1;
+.dev-bg-green {
+    background: #296e15;
+}
+.dev-bg-ash {
+    background: #918889;
 }
 .container-box {
   border-left: 1px solid #000000;
@@ -137,7 +140,7 @@
   background: #130f32;
 }
 .form-banner {
-  background-image: url("/image/cover.png");
+  background-image: url("image/cover.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;

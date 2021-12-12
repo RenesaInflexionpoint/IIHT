@@ -18,7 +18,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('logout', function (){
     return \Illuminate\Support\Facades\Auth::logout();
@@ -26,8 +25,11 @@ Route::get('logout', function (){
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/testimonial', 'TestimonialController');
-Route::resource('/courses', 'CoursesController');
-Route::get('/checking', 'TestimonialController@checking');
+Route::middleware(['auth','admin'])->group(function (){
+    Route::resource('/testimonial', 'TestimonialController');
+    Route::resource('/courses', 'CoursesController');
+    Route::get('/home', 'HomeController@index')->name('home');
+
+});
+Route::get('/index', 'IihtClientSiteController@index');

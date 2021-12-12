@@ -1,54 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <script
-      crossorigin
-      src="https://unpkg.com/react@17/umd/react.production.min.js"
-    ></script>
-    <script
-      crossorigin
-      src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"
-    ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
-
-    <!-- date time  -->
-    <script type="text/javascript" src="/scripts/jquery.min.js"></script>
-    <script type="text/javascript" src="/scripts/moment.min.js"></script>
-    <script type="text/javascript" src="/scripts/bootstrap.min.js"></script>
-    <script
-      type="text/javascript"
-      src="/scripts/bootstrap-datetimepicker.*js"
-    ></script>
-
-    <!-- font awesome -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-      crossorigin="anonymous"
-    />
-    <!-- boot strap -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <!-- google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <title>Document</title>
-  </head>
-  <body>
+@extends('iihtClientSite.layouts.header')
+@section('content')
     <div id="mydiv"></div>
     <script type="text/babel">
       function Test() {
@@ -94,6 +45,7 @@
                               data-bs-toggle="modal"
                               data-bs-target="#exampleModal"
                               aria-current="page"
+                              id=""
                               href="#"
                             >
                               Admission
@@ -247,7 +199,7 @@
                             <a
                               class="nav-link active"
                               aria-current="page"
-                              href="#"
+                              href="#about"
                             >
                               About Us
                             </a>
@@ -257,7 +209,7 @@
                             <a
                               class="nav-link active"
                               aria-current="page"
-                              href="#"
+                              href="#course"
                             >
                               Courses
                             </a>
@@ -266,7 +218,7 @@
                             <a
                               class="nav-link active"
                               aria-current="page"
-                              href="#"
+                              href="#contact"
                             >
                               Contact Us
                             </a>
@@ -275,7 +227,7 @@
                             <a
                               class="nav-link active"
                               aria-current="page"
-                              href="#"
+                              href="#career"
                             >
                               Career Counselling
                             </a>
@@ -300,7 +252,7 @@
               </div>
 
               <div class="container">
-                <div class="content text-white d-flex justify-content-start align-items-center mt-5">
+                <div class="content text-light d-flex justify-content-start align-items-center mt-5">
                   <div>
                     <h1 class="fw-bolder heading">
                       Make Your Step To <br /> Build Your Future
@@ -342,18 +294,13 @@
                     Welcome to IIHT Bangladesh{" "}
                   </h3>
                   <p class=" text-wrap sec2-text">
-                    A great integrated online e-learning platform that provides
-                    learners and trainers the best EdTech environment.A great
-                    integrated online e-learning platform that provides learners
-                    and trainers the best EdTech environment.IIHT (Indian
-                    Institute of hardware & technology) Asia's No1 IMS Training
-                    Institute.. Now arriving at Bangladesh..
+                      {{ ($testimonials) ? $testimonials->content : null}}
                   </p>
                 </div>
               </div>
             </div>
 
-            <div class="container my-5 ">
+            <div class="container my-5" id= "course">
               <h3 class="text-center fw-bolder heading-color">Our Courses</h3>
               <p class="text-center text-info pb-4">
                 <small>
@@ -361,6 +308,7 @@
                   needed.
                 </small>
               </p>
+                @if(!$courses->isEmpty())
               <div
                 id="carouselExampleControls"
                 class="carousel slide"
@@ -368,238 +316,34 @@
               >
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <div class="row mb-5">
+                    <div class="row g-5 mb-5">
+                        @foreach( $courses as $course )
                       <div class="col-md-3 col-6 ">
-                        <div class="d-flex justify-content-center align-items-center dev-bg p-3  rounded-top">
+                        <div class="d-flex justify-content-center align-items-center dev-bg-{{$color}} p-3  rounded-top">
                           <div class="border border-secondary rounded-circle p-2 me-2 bg-white">
                             <i class="fas fa-users text-warning"></i>
                           </div>
-                          <p class="text-white">web development</p>
+                          <p class="text-white">{{$course->name}}</p>
                         </div>
                         <div class="p-3 shadow-lg rounded-bottom">
-                          <p>Price : 16,000 BDT</p>
-                          <p>Class : 14 </p>
-                          <p>Duration : 2 hours </p>
+                          <p>Price : {{ $course->price }} BDT</p>
+                          <p>Class : {{ $course->class_no }} </p>
+                          <p>Duration : {{ $course->duration }} hours </p>
                           <a href="" class="text-decoration-none text-warning">
                             Learn More
                           </a>
                         </div>
                       </div>
-                      <div class="col-md-3 col-6 ">
-                        <div class="d-flex justify-content-center align-items-center graphics-bg p-3  rounded-top">
-                          <div class="border border-secondary rounded-circle p-2 me-2 bg-white">
-                            <i class="fas fa-users text-warning"></i>
-                          </div>
-                          <p class="text-white">Graphics Design</p>
-                        </div>
-                        <div class="p-3 shadow-lg rounded-bottom">
-                          <p>Price : 16,000 BDT</p>
-                          <p>Class : 14 </p>
-                          <p>Duration : 2 hours </p>
-                          <a href="" class="text-decoration-none text-warning">
-                            Learn More
-                          </a>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-6 ">
-                        <div class="d-flex justify-content-center align-items-center marketing-bg p-3  rounded-top">
-                          <div class="border border-secondary rounded-circle p-2 me-2 bg-white">
-                            <i class="fas fa-users text-warning"></i>
-                          </div>
-                          <p class="text-white">Digital Marketing</p>
-                        </div>
-                        <div class="p-3 shadow-lg rounded-bottom">
-                          <p>Price : 16,000 BDT</p>
-                          <p>Class : 14 </p>
-                          <p>Duration : 2 hours </p>
-                          <a href="" class="text-decoration-none text-warning">
-                            Learn More
-                          </a>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-6 ">
-                        <div class="d-flex justify-content-center align-items-center bg-success p-3  rounded-top">
-                          <div class="border border-secondary rounded-circle p-2 me-2 bg-white">
-                            <i class="fas fa-users text-warning"></i>
-                          </div>
-                          <p class="text-white">Machine Learning</p>
-                        </div>
-                        <div class="p-3 shadow-lg rounded-bottom">
-                          <p>Price : 16,000 BDT</p>
-                          <p>Class : 14 </p>
-                          <p>Duration : 2 hours </p>
-                          <a href="" class="text-decoration-none text-warning">
-                            Learn More
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <div class="row mb-5">
-                      <div class="col-md-3 col-6">
-                        <div class="d-flex justify-content-center align-items-center dev-bg p-3  rounded-top">
-                          <div class="border border-secondary rounded-circle p-2 me-2 bg-white">
-                            <i class="fas fa-users text-warning"></i>
-                          </div>
-                          <p>web development</p>
-                        </div>
-                        <div class="p-3 shadow-lg rounded-bottom">
-                          <p>Price : 16,000 BDT</p>
-                          <p>Class : 14 </p>
-                          <p>Duration : 2 hours </p>
-                          <a href="" class="text-decoration-none text-warning">
-                            Learn More
-                          </a>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-6 ">
-                        <div class="d-flex justify-content-center align-items-center graphics-bg p-3  rounded-top">
-                          <div class="border border-secondary rounded-circle p-2 me-2 bg-white">
-                            <i class="fas fa-users text-warning"></i>
-                          </div>
-                          <p>web development</p>
-                        </div>
-                        <div class="p-3 shadow-lg rounded-bottom">
-                          <p>Price : 16,000 BDT</p>
-                          <p>Class : 14 </p>
-                          <p>Duration : 2 hours </p>
-                          <a href="" class="text-decoration-none text-warning">
-                            Learn More
-                          </a>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-6 ">
-                        <div class="d-flex justify-content-center align-items-center marketing-bg p-3  rounded-top">
-                          <div class="border border-secondary rounded-circle p-2 me-2 bg-white">
-                            <i class="fas fa-users text-warning"></i>
-                          </div>
-                          <p>web development</p>
-                        </div>
-                        <div class="p-3 shadow-lg rounded-bottom">
-                          <p>Price : 16,000 BDT</p>
-                          <p>Class : 14 </p>
-                          <p>Duration : 2 hours </p>
-                          <a href="" class="text-decoration-none text-warning">
-                            Learn More
-                          </a>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-6 ">
-                        <div class="d-flex justify-content-center align-items-center bg-success p-3  rounded-top">
-                          <div class="border border-secondary rounded-circle p-2 me-2 bg-white">
-                            <i class="fas fa-users text-warning"></i>
-                          </div>
-                          <p>web development</p>
-                        </div>
-                        <div class="p-3 shadow-lg rounded-bottom">
-                          <p>Price : 16,000 BDT</p>
-                          <p>Class : 14 </p>
-                          <p>Duration : 2 hours </p>
-                          <a href="" class="text-decoration-none text-warning">
-                            Learn More
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <div class="row mb-5">
-                      <div class="col-md-3 col-6 ">
-                        <div class="d-flex justify-content-center align-items-center dev-bg p-3  rounded-top">
-                          <div class="border border-secondary rounded-circle p-2 me-2 bg-white">
-                            <i class="fas fa-users text-warning"></i>
-                          </div>
-                          <p>web development</p>
-                        </div>
-                        <div class="p-3 shadow-lg rounded-bottom">
-                          <p>Price : 16,000 BDT</p>
-                          <p>Class : 14 </p>
-                          <p>Duration : 2 hours </p>
-                          <a href="" class="text-decoration-none text-warning">
-                            Learn More
-                          </a>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-6 ">
-                        <div class="d-flex justify-content-center align-items-center graphics-bg p-3  rounded-top">
-                          <div class="border border-secondary rounded-circle p-2 me-2 bg-white">
-                            <i class="fas fa-users text-warning"></i>
-                          </div>
-                          <p>web development</p>
-                        </div>
-                        <div class="p-3 shadow-lg rounded-bottom">
-                          <p>Price : 16,000 BDT</p>
-                          <p>Class : 14 </p>
-                          <p>Duration : 2 hours </p>
-                          <a href="" class="text-decoration-none text-warning">
-                            Learn More
-                          </a>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-6 ">
-                        <div class="d-flex justify-content-center align-items-center marketing-bg p-3  rounded-top">
-                          <div class="border border-secondary rounded-circle p-2 me-2 bg-white">
-                            <i class="fas fa-users text-warning"></i>
-                          </div>
-                          <p>web development</p>
-                        </div>
-                        <div class="p-3 shadow-lg rounded-bottom">
-                          <p>Price : 16,000 BDT</p>
-                          <p>Class : 14 </p>
-                          <p>Duration : 2 hours </p>
-                          <a href="" class="text-decoration-none text-warning">
-                            Learn More
-                          </a>
-                        </div>
-                      </div>
-                      <div class="col-md-3 col-6 ">
-                        <div class="d-flex justify-content-center align-items-center bg-success p-3  rounded-top">
-                          <div class="border border-secondary rounded-circle p-2 me-2 bg-white">
-                            <i class="fas fa-users text-warning"></i>
-                          </div>
-                          <p>web development</p>
-                        </div>
-                        <div class="p-3 shadow-lg rounded-bottom">
-                          <p>Price : 16,000 BDT</p>
-                          <p>Class : 14 </p>
-                          <p>Duration : 2 hours </p>
-                          <a href="" class="text-decoration-none text-warning">
-                            Learn More
-                          </a>
-                        </div>
-                      </div>
+                        @endforeach
                     </div>
                   </div>
                 </div>
-                <button
-                  class="carousel-control-prev"
-                  type="button"
-                  data-bs-target="#carouselExampleControls"
-                  data-bs-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button
-                  class="carousel-control-next"
-                  type="button"
-                  data-bs-target="#carouselExampleControls"
-                  data-bs-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
               </div>
+                @else
+                <div><p>There is no course available now</p></div>
+                @endif
             </div>
-
-            <div>
+            <div id="career">
               <div class="form-banner pt-5">
                 <div class="heading">
                   <h3 class="fw-bolder heading-color  ms-4">
@@ -628,39 +372,33 @@
                             aria-describedby="emailHelp"
                           />
                         </div>
-                        <div class="col-md-6 col-12 mb-2">
-                          <input
-                            type="text"
-                            placeholder="Please select"
-                            class="form-control"
-                            aria-label="Text input with dropdown button"
-                          />{" "}
-                          <ul class="dropdown-menu">
-                            <li>
-                              <a class="dropdown-item" href="#">
-                                Action before
-                              </a>
-                            </li>
-                            <li>
-                              <a class="dropdown-item" href="#">
-                                Another action before
-                              </a>
-                            </li>
-                            <li>
-                              <a class="dropdown-item" href="#">
-                                Something else here
-                              </a>
-                            </li>
-                            <li>
-                              <hr class="dropdown-divider" />
-                            </li>
-                            <li>
-                              <a class="dropdown-item" href="#">
-                                Separated link
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
+                          <div class="col-md-6 col-12 mb-2">
+                          <select
+                              name=""
+                              id=""
+                              class="form-control"
+                          >
+                              <option value="">Select</option>
+                              <option value="web_development_laravel">
+                                  Career in Web Develpment - Laravel
+                              </option>
+                              <option value="web_development_django">
+                                  Career in Web Develpment - Django
+                              </option>
+                              <option value="machine_learning">
+                                  Machine Learning and it's Career
+                              </option>
+                              <option value="data_science">
+                                  Data Science and it's Career
+                              </option>
+                              <option value="ui_ux">
+                                  Career in UI/UX
+                              </option>
+                              <option value="graphics_design">
+                                  Career in Graphics Design
+                              </option>
+                          </select>
+                          </div>
                         <div class="col-md-6 col-12 mb-2">
                           <input
                             type="email"
@@ -686,14 +424,14 @@
               </div>
             </div>
 
-            <div class="team-bg py-3 shadow-lg">
+            <div class="team-bg py-3 shadow-lg" id="about">
               <h3 class="fw-bolder heading-color text-white text-center my-5 pt-3">
                 Meet Our Team Members
               </h3>
               <div class="container-team">
                 <div class="our-team">
                   <div class="team-pic">
-                    <img src="image/ceo.png" alt="" />
+                    <img src="assets/asset/image/ceo.png" alt="" />
                   </div>
                   <div class="team-content">
                     <h3 class="title">Ashley Fletcher</h3>
@@ -708,7 +446,7 @@
                 </div>
                 <div class="our-team">
                   <div class="team-pic">
-                    <img src="image/co-founder.png" alt="" />
+                    <img src="assets/asset/image/co-founder.png" alt="" />
                   </div>
                   <div class="team-content">
                     <h3 class="title mt-4">Avie Beaton</h3>
@@ -723,7 +461,7 @@
                 </div>
                 <div class="our-team">
                   <div class="team-pic">
-                    <img src="image/co ordinator.png" alt="" />
+                    <img src="assets/asset/image/co ordinator.png" alt="" />
                   </div>
                   <div class="team-content">
                     <h3 class="">Ben Jonson</h3>
@@ -740,7 +478,7 @@
             </div>
 
             <footer>
-              <div class="container">
+              <div class="container" id="contact">
                 <div class="d-flex justify-content-between mt-5 border-bottom">
                   <p class="text text-white">IIHT Bangladesh</p>
                   <p class="text text-white">
@@ -865,44 +603,4 @@
       crossorigin="anonymous"
     ></script>
   </body>
-</html>
-
-<!-- <div class="container">
-  <div class="row">
-     <div class='col-sm-6'>
-        <div class="form-group">
-           <div class='input-group date' id='datetimepicker1'>
-              <input type='text' class="form-control" />
-              <span class="input-group-addon">
-              <span class="glyphicon glyphicon-calendar"></span>
-              </span>
-           </div>
-        </div>
-     </div>
-     <script type="text/javascript">
-        $(function () {
-            $('#datetimepicker1').datetimepicker();
-        });
-     </script>
-  </div>
-</div> -->
-
-<!-- 
-<div class="form">
-  <div class="input-field">
-    <label for="">Name</label>
-    <input type="text" class="input" />
-  </div>
-  <div class="input-field">
-    <label for="">Email</label>
-    <input type="email" class="input" />
-  </div>
-  <div class="input-field">
-    <label for="">Course Name</label>
-    <input type="text" class="input" />
-  </div>
-  <div class="input-field">
-    <label for="">Time</label>
-    <input type="text" class="input" />
-  </div>
-</div> -->
+@endsection

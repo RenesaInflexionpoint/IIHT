@@ -103,11 +103,5 @@ class TestimonialController extends Controller
             ->with('success','Testimonial deleted successfully');
     }
 
-    public function checking()
-    {
-        $users1 = User::where('email', '=', 'sagor@gmail.com')->first();
-        $users2 = User::where('email', '=', 'krenesa55@gmail.com')->first();
-        dd();
-    }
 
 }

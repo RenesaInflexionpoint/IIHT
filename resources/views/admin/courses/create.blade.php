@@ -34,7 +34,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Cost:</strong>
-                <input type="number" name="price" class="form-control" placeholder="Cost">
+                <input type="text" name="price" class="form-control" placeholder="Cost">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
