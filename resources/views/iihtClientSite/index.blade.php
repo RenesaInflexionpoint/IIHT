@@ -75,119 +75,57 @@
                                     aria-label="Close"
                                   ></button>
                                 </div>
+                                  <form action="{{ route('booked.seat') }}" method="POST" >
+                                      <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <div class="modal-body ">
                                   <div class="d-flex justify-content-center align-items-center">
                                     <div class="shadow-lg p-4">
                                       <div class="mb-3 row">
-                                        <label
-                                          for="inputtext"
-                                          class="col-sm-2 col-form-label text"
-                                        >
-                                          Name
-                                        </label>
+                                        <label for="inputtext" class="col-sm-2 col-form-label text">Name</label>
                                         <div class="col-sm-10">
-                                          <input
-                                            type="text"
-                                            class="form-control"
-                                            id="inputName"
-                                          />
+                                          <input type="text" class="form-control" name="name" id="inputName"/>
                                         </div>
                                       </div>
                                       <div class="mb-3 row">
-                                        <label
-                                          for="inputtext"
-                                          class="col-sm-2 col-form-label text"
-                                        >
-                                          Email
-                                        </label>
+                                        <label for="inputtext" class="col-sm-2 col-form-label text">Email</label>
                                         <div class="col-sm-10">
-                                          <input
-                                            type="email"
-                                            class="form-control"
-                                            id="inputName"
-                                          />
+                                          <input type="email" class="form-control" name="email" id="inputName"/>
                                         </div>
                                       </div>
                                       <div class="row">
                                         <div class="col-md-6 col-12">
                                           <div class="custom-select ">
-                                            <label
-                                              for="inputtext"
-                                              class="col-sm-2 col-form-label text"
-                                            >
-                                              Courses
-                                            </label>
+                                            <label for="inputtext" class="col-sm-2 col-form-label text">Courses</label>
                                             <span class="ps-5">
-                                              <select
-                                                name=""
-                                                id=""
-                                                class="form-control"
-                                              >
-                                                <option value="">Select</option>
-                                                <option value="english">
-                                                  English
-                                                </option>
-                                                <option value="math">
-                                                  Math
-                                                </option>
-                                                <option value="bangla">
-                                                  Bangla
-                                                </option>
-                                                <option value="science">
-                                                  Science
-                                                </option>
-                                              </select>
+                                                <select class="form-select" id='courseId' name='course_id' >
+                                                @foreach ($courseList as $key => $value)
+                                                <option value='{{$key}}'>{{$value}}</option>
+                                                    @endforeach
+                                                </select>
                                             </span>
                                           </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                           <div class="custom-select ">
-                                            <label
-                                              for="inputtext"
-                                              class="col-sm-2 col-form-label text"
-                                            >
-                                              Slots
-                                            </label>
+                                            <label for="inputtext" class="col-sm-2 col-form-label text">Slots</label>
                                             <span class="ps-5">
-                                              <select
-                                                name=""
-                                                id=""
-                                                class="form-control text"
-                                              >
+                                              <select name="slot_id" id="slotId" class="form-control text">
                                                 <option value="">Select</option>
-                                                <option value="english"></option>
-                                                <option value="math">
-                                                  Math
-                                                </option>
-                                                <option value="bangla">
-                                                  Bangla
-                                                </option>
-                                                <option value="science">
-                                                  Science
-                                                </option>
                                               </select>
                                             </span>
                                           </div>
                                         </div>
                                       </div>
                                       <div class="d-flex justify-content-center">
-                                        <a
-                                          href=""
-                                          class="text-decoration-none mt-3"
-                                        >
+                                        <a href="" class="text-decoration-none mt-3">
                                           {" "}
-                                          <button
-                                            id="alert"
-                                            type="button"
-                                            class="btn btn-warning rounded-pill px-5 text"
-                                          >
-                                            Confirm your seat
-                                          </button>
+                                          <button id="alert" type="submit" class="btn btn-warning rounded-pill px-5 text">Confirm your seat</button>
                                         </a>
                                       </div>
                                     </div>
                                   </div>
                                 </div>
+                                  </form>
                                 <div class="modal-footer d-flex justify-content-center bg-info ">
                                   <div class=" py-3"></div>
                                 </div>
@@ -352,73 +290,51 @@
                 </div>
                 <div class="container row mt-5">
                   <div class="col-md-6 col-12">
-                    <form class="shadow-lg p-4">
+                    <form class="shadow-lg p-4" action="{{ route('career.appointment') }}" method="POST">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                       <div class="row g-4">
                         <div class="col-md-6 col-12 mb-2">
-                          <input
-                            type="text"
-                            placeholder="User Name"
-                            class="form-control "
-                            id="exampleInputEmail1"
-                            aria-describedby="emailHelp"
-                          />
+                          <input type="text" name="name" placeholder="User Name" class="form-control " id="exampleInputEmail1" aria-describedby="emailHelp"/>
                         </div>
                         <div class="col-md-6 col-12 mb-2">
-                          <input
-                            placeholder="example@gmail.com"
-                            type="email"
-                            class="form-control"
-                            id="exampleInputEmail1"
-                            aria-describedby="emailHelp"
-                          />
+                          <input placeholder="example@gmail.com" name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
                         </div>
                           <div class="col-md-6 col-12 mb-2">
-                          <select
-                              name=""
-                              id=""
-                              class="form-control"
-                          >
+                          <select name="subject" id="" class="form-control">
                               <option value="">Select</option>
-                              <option value="web_development_laravel">
+                              <option value="Career in Web Develpment - Laravel">
                                   Career in Web Develpment - Laravel
                               </option>
-                              <option value="web_development_django">
+                              <option value="Career in Web Develpment - Django">
                                   Career in Web Develpment - Django
                               </option>
-                              <option value="machine_learning">
+                              <option value="Machine Learning and it's Career">
                                   Machine Learning and it's Career
                               </option>
-                              <option value="data_science">
+                              <option value="Data Science and it's Career">
                                   Data Science and it's Career
                               </option>
-                              <option value="ui_ux">
+                              <option value="UI/UX">
                                   Career in UI/UX
                               </option>
-                              <option value="graphics_design">
+                              <option value="Career in Graphics Design">
                                   Career in Graphics Design
                               </option>
                           </select>
                           </div>
                         <div class="col-md-6 col-12 mb-2">
-                          <input
-                            type="email"
-                            placeholder="Time"
-                            class="form-control"
-                            id="exampleInputEmail1"
-                            aria-describedby="emailHelp"
-                          />
+                          <input type="date" name="date" placeholder="Time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
                         </div>
                       </div>
-
-                      <a href="">
-                        <button
-                          type="submit"
-                          class="btn btn-warning text-white rounded-pill mt-3"
-                        >
-                          Book Appointment
-                        </button>
-                      </a>
+                        <button type="submit" class="btn btn-warning text-white rounded-pill mt-3">Book Appointment</button>
                     </form>
+                      @if (\Session::has('success'))
+                      <div class="alert alert-success">
+                      <ul>
+                          {!! \Session::get('success') !!}
+                      </ul>
+                      </div>
+                      @endif
                   </div>
                 </div>
               </div>
@@ -602,5 +518,6 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
-  </body>
+
+    </body>
 @endsection
