@@ -1,6 +1,7 @@
 @extends('iihtClientSite.layouts.header')
 @section('content')
     <div id="mydiv"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/babel">
       function Test() {
         return (
@@ -77,6 +78,7 @@
                                 </div>
                                   <form action="{{ route('booked.seat') }}" method="POST" >
                                       <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                      <meta name="csrf-token" content="{{ csrf_token() }}" />
                                 <div class="modal-body ">
                                   <div class="d-flex justify-content-center align-items-center">
                                     <div class="shadow-lg p-4">
@@ -97,7 +99,7 @@
                                           <div class="custom-select ">
                                             <label for="inputtext" class="col-sm-2 col-form-label text">Courses</label>
                                             <span class="ps-5">
-                                                <select class="form-select" id='courseId' name='course_id' >
+                                                <select class="form-select" name='course_id' id='courseId'>
                                                 @foreach ($courseList as $key => $value)
                                                 <option value='{{$key}}'>{{$value}}</option>
                                                     @endforeach
@@ -105,15 +107,7 @@
                                             </span>
                                           </div>
                                         </div>
-                                        <div class="col-md-6 col-12">
-                                          <div class="custom-select ">
-                                            <label for="inputtext" class="col-sm-2 col-form-label text">Slots</label>
-                                            <span class="ps-5">
-                                              <select name="slot_id" id="slotId" class="form-control text">
-                                                <option value="">Select</option>
-                                              </select>
-                                            </span>
-                                          </div>
+                                        <div class="col-md-6 col-12" id="showCourseSlot">
                                         </div>
                                       </div>
                                       <div class="d-flex justify-content-center">
@@ -132,7 +126,6 @@
                               </div>
                             </div>
                           </div>
-
                           <li class="nav-item">
                             <a
                               class="nav-link active"
@@ -513,6 +506,38 @@
 
       //boot strap
     </script>
+    <script>
+    $(document).on("change", "#courseId", function () {
+        var courseId = $("#courseId").val();
+        var options = {
+            closeButton: true,
+            debug: false,
+            positionClass: "toast-bottom-right",
+            onclick: null
+        };
+
+        $.ajax({
+            url: "{{ URL::to('getSlot')}}",
+            type: "POST",
+            dataType: "json",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: {
+                course_id: courseId,
+            },
+            success: function (res) {
+                $('#showCourseSlot').html(res.html);
+                $('.js-source-states').select2();
+                App.unblockUI();
+            },
+            error: function (jqXhr, ajaxOptions, thrownError) {
+                toastr.error('@lang("label.SOMETHING_WENT_WRONG")', 'Error', options);
+                App.unblockUI();
+            }
+        });//ajax
+    });
+    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -521,3 +546,4 @@
 
     </body>
 @endsection
+
