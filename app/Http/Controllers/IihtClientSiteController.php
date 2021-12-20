@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Courses;
 use App\CourseDetails;
 use App\StudentDetails;
+use DB;
 use App\Testimonial;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -49,7 +50,8 @@ class IihtClientSiteController extends Controller
     {
         $slotList = ['0' => __('Select')] + CourseDetails::join('courses', 'courses.id', '=', 'course_details.course_id')
                 ->where('course_details.course_id', $request->course_id)
-                ->pluck('course_details.slot', 'course_details.id')->toArray();
+                ->select(DB::raw('CONCAT(course_details.slot, course_details.availability) AS slot_details'),'course_details.id')
+                ->pluck('slot_details', 'course_details.id')->toArray();
 
 
         $html = view('iihtClientSite.slotShow', compact('slotList'))->render();
