@@ -46,7 +46,7 @@
         rel="stylesheet"
     />
 
-    <title>Document</title>
+    <title>IIHT Bangladesh</title>
 </head>
 <body>
 @yield('content')

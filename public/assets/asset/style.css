@@ -37,7 +37,53 @@
   max-width: 800px;
   margin: 0px auto;
 }
+.padding-size{
+    padding: 5px 0 5px 0;
+}
+heading1-size{
+    font-family: Poppins;
+    font-size: 58px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 80px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: left;
 
+}
+.btn1{
+    background-color: cyan;
+    border: cyan;
+    padding: 10px 36px;
+}
+.btn-color{
+    background-color: rgba(0, 160, 193, 0.24);
+    /*border: cyan;*/
+    padding: 10px 36px;
+
+}
+.nav-bg{
+    background-color:#130F32;
+}
+.nav-font{
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0.10000000149011612px;
+    text-align: left;
+
+}
+.title{
+    font-family: Poppins;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 57px;
+    letter-spacing: 0.20000000298023224px;
+    text-align: center;
+
+}
 .container-team {
   display: flex;
   align-items: center;
@@ -102,18 +148,10 @@
 /* .team-content {
   background-color: cyan;
 } */
-.heading {
-  font-family: Poppins;
-  font-size: 58px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 80px;
-  letter-spacing: 0.20000000298023224px;
-  text-align: left;
-}
+
 .heading-color {
   color: #252b42;
-  font-family: Poppins;
+
 }
 .sec2-text {
   font-family: "Outfit", sans-serif;
@@ -148,6 +186,10 @@
   height: 500px;
   width: 100%;
 }
+.nav-border{
+    border: 1px solid ;
+    border-radius: 30px 30px 30px 30px;
+}
 
 .sizing {
   width: 250px;
@@ -158,10 +200,20 @@
 }
 
 footer {
-  background-color: #000000;
+  background-color:  #252B42;
 }
 .footer-copy-right {
-  background-color: #130f32;
+  background-color: #16697A
+}
+.btn-flex{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.btn2{
+    margin-left: 5px;
+    margin-top: 0px;
 }
 
 /* media query */
@@ -172,5 +224,13 @@ footer {
   .our-team {
     width: 80%;
     margin-top: 30px;
+  }
+  .btn2{
+      margin-top: 0px;
+  }
+  .btn-flex{
+      display: flex;
+      flex-wrap: wrap;
+
   }
 }

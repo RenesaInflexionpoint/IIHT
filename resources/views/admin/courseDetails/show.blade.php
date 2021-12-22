@@ -4,10 +4,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2> Show Courses</h2>
+                <h2> Show Course Details</h2>
             </div>
             <div class="float-right">
-                <a class="btn btn-primary" href="{{ route('courses.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('courseDetails.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -16,25 +16,19 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Course Name:</strong>
-                {{ $courses->name }}
+                {{ $courses->course_name }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Cost:</strong>
-                {{ $courses->price }}
+                <strong>Slot:</strong>
+                {{ $courses->slot }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>No. of Classes:</strong>
-                {{ $courses->class_no }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Duration(Hrs):</strong>
-                {{ $courses->duration }}
+                <strong>Availability of Class:</strong>
+                {{ $courses->availability }}
             </div>
         </div>
     </div>

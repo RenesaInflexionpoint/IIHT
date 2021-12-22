@@ -19,4 +19,5 @@ class StudentInfoController extends Controller
         return view('admin.studentDetails.index', compact('studentDetails'))
             ->with('i');
     }
+
 }

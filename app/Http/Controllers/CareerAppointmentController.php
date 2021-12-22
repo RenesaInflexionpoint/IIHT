@@ -19,7 +19,7 @@ class CareerAppointmentController extends Controller
             $message->to("noreply.inflexion@gmail.com")->subject("Appointment For Career Counselling");
         });
 
-        return redirect('/index#career')->with('success', 'Successfully Sent Mail for Your Appointment');
+        return redirect('/#career')->with('success', 'Successfully Sent Mail for Your Appointment');
 
     }
 }

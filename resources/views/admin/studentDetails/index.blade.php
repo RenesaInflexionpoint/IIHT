@@ -26,7 +26,7 @@
             <th>Uniq Id</th>
             <th>Course Name</th>
             <th>Slot</th>
-            <th width="280px">Action</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -43,12 +43,12 @@
 
                         <a class="btn btn-info" href="{{ route('courses.show',$data->id) }}">Show</a>
 
-                        <a class="btn btn-primary" href="{{ route('courses.edit',$data->id) }}">Edit</a>
+{{--                        <a class="btn btn-primary" href="{{ route('courses.edit',$data->id) }}">Edit</a>--}}
 
-                        @csrf
-                        @method('DELETE')
+{{--                        @csrf--}}
+{{--                        @method('DELETE')--}}
 
-                        <button type="submit" class="btn btn-danger">Delete</button>
+{{--                        <button type="submit" class="btn btn-danger">Delete</button>--}}
                     </form>
                 </td>
             </tr>
@@ -62,7 +62,7 @@
             <th>Uniq Id</th>
             <th>Course Name</th>
             <th>Slot</th>
-            <th width="280px">Action</th>
+            <th>Action</th>
         </tr>
         </tfoot>
     </table>

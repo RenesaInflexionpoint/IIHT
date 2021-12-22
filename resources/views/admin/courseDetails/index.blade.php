@@ -31,11 +31,11 @@
         @foreach ($courseDetails as $item)
             <tr>
                 <td>{{ ++$i }}</td>
-                <td>{{ $item->course_id  }}</td>
+                <td>{{ $item->course_name  }}</td>
                 <td>{{ $item->slot }}</td>
                 <td>{{ $item->availability }}</td>
                 <td>
-                    <form action="{{ route('courses.destroy',$item->id) }}" method="POST">
+                    <form action="{{ route('courseDetails.destroy',$item->id) }}" method="POST">
 
                         <a class="btn btn-info" href="{{ route('courseDetails.show',$item->id) }}">Show</a>
 
