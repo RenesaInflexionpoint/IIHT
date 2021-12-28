@@ -118,6 +118,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/jquery-easing" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/datatables" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/vendor/fontawesome-free" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/artesaos/seotools" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

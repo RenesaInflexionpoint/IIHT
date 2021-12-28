@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Courses;
 use App\CourseDetails;
 use App\StudentDetails;
+use Artesaos\SEOTools\Facades\JsonLd;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\SEOMeta;
 use DB;
 use App\Testimonial;
 use Illuminate\Http\Request;
@@ -14,6 +17,20 @@ use function PHPUnit\Framework\isEmpty;
 class IihtClientSiteController extends Controller
 {
     public function index(){
+
+        SEOMeta::setTitle('IIHT-BD');
+        SEOMeta::setDescription('Make Your Step To Build Your Future');
+//        SEOMeta::setCanonical('https://codecasts.com.br/lesson');
+
+        OpenGraph::setDescription('Make Your Step To Build Your Future');
+        OpenGraph::setTitle('IIHT-BD');
+        OpenGraph::setUrl('https://iiht.inflexionpointbd.com');
+        OpenGraph::addProperty('type', 'educational');
+
+        JsonLd::setTitle('IIHT-BD');
+        JsonLd::setDescription('Make Your Step To Build Your Future');
+//        JsonLd::addImage('https://codecasts.com.br/img/logo.jpg');
+
         $testimonials = Testimonial::first();
         $courses = Courses::all();
         $color = 'blue';

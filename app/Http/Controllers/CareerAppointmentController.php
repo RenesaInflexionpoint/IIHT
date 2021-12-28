@@ -16,7 +16,7 @@ class CareerAppointmentController extends Controller
         ]);
 
         Mail::send('iihtClientSite.mailShow', $inputs, function ($message) {
-            $message->to("noreply.inflexion@gmail.com")->subject("Appointment For Career Counselling");
+            $message->to("iiht.inflexionpoint@gmail.com")->subject("Appointment For Career Counselling");
         });
 
         return redirect('/#career')->with('success', 'Successfully Sent Mail for Your Appointment');

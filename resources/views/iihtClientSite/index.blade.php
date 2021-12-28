@@ -10,7 +10,7 @@
                         <div class="container pt-4">
                             <nav class="navbar navbar-expand-lg navbar-dark nav-bg nav-border ">
                                 <div class="container-fluid">
-                                    <a class="navbar-brand" href="#">
+                                    <a class="navbar-brand ps-3" href="#">
                                         IIHT BD
                                     </a>
                                     <button
@@ -62,9 +62,9 @@
                                                 >
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
-                                                            <div class="modal-header bg-info">
+                                                            <div class="modal-header bg-modal text-center">
                                                                 <h5
-                                                                    class="modal-title text-center text"
+                                                                    class="modal-title w-100 text-center text-white text"
                                                                     id="exampleModalLabel"
                                                                 >
                                                                     Book Your Seat
@@ -80,13 +80,13 @@
                                                                 <input type="hidden" name="_token"
                                                                        value="{{ csrf_token() }}"/>
                                                                 <meta name="csrf-token" content="{{ csrf_token() }}"/>
-                                                                <div class="modal-body ">
+                                                                <div class="modal-body">
                                                                     <div
                                                                         class="d-flex justify-content-center align-items-center">
                                                                         <div class="shadow-lg p-4">
                                                                             <div class="mb-3 row">
                                                                                 <label for="inputtext"
-                                                                                       class="col-sm-2 col-form-label text">Name</label>
+                                                                                       class="col-sm-2 col-form-label text ">Name</label>
                                                                                 <div class="col-sm-10">
                                                                                     <input type="text"
                                                                                            class="form-control"
@@ -95,7 +95,7 @@
                                                                             </div>
                                                                             <div class="mb-3 row">
                                                                                 <label for="inputtext"
-                                                                                       class="col-sm-2 col-form-label text">Email</label>
+                                                                                       class="col-sm-2 col-form-label text ">Email</label>
                                                                                 <div class="col-sm-10">
                                                                                     <input type="email"
                                                                                            class="form-control"
@@ -106,7 +106,7 @@
                                                                                 <div class="col-md-6 col-12">
                                                                                     <div class="custom-select ">
                                                                                         <label for="inputtext"
-                                                                                               class="col-sm-2 col-form-label text">Courses</label>
+                                                                                               class="col-sm-2 col-form-label text text-white">Courses</label>
                                                                                         <span class="ps-5">
                                                 <select class="form-select" name='course_id' id='courseId'>
                                                 @foreach ($courseList as $key => $value)
@@ -125,7 +125,7 @@
                                                                                    class="text-decoration-none mt-3">
                                                                                     {" "}
                                                                                     <button id="alert" type="submit"
-                                                                                            class="btn btn-warning rounded-pill px-5 text">Confirm
+                                                                                            class="btn bg-warning rounded-pill px-5 text">Confirm
                                                                                         your seat
                                                                                     </button>
                                                                                 </a>
@@ -135,7 +135,7 @@
                                                                 </div>
                                                             </form>
                                                             <div
-                                                                class="modal-footer d-flex justify-content-center bg-info ">
+                                                                class="modal-footer d-flex justify-content-center bg-modal">
                                                                 <div class=" py-3"></div>
                                                             </div>
                                                         </div>
@@ -189,12 +189,6 @@
                                                 </li>
                                             </ul>
                                         </div>
-
-                                        <form class="d-flex">
-                                            <a href="">
-                                                <i class="fas fa-search text-white my-3"></i>
-                                            </a>
-                                        </form>
                                     </div>
                                 </div>
                             </nav>
@@ -211,8 +205,9 @@
                                         you grow
                                     </p>
                                     <div class="btn-flex">
-                                        <a href="">
-                                            <button type="button" class=" text-white btn1 rounded-pill">
+                                        <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                                            <button type="button"
+                                                    class=" text-white btn1 rounded-pill">
                                                 Book Now
                                             </button>
                                         </a>
@@ -230,7 +225,7 @@
                             </div>
                         </div>
                     </div>
-                    <h3 class="text-center heading-color mt-5">
+                    <h3 class="text-center heading-color fs-2 mt-5 mb-5">
                         Welcome to IIHT Bangladesh{" "}
                     </h3>
                     <div class="container mt-3 shadow-lg rounded-3 my-5">
@@ -252,13 +247,8 @@
                     </div>
 
                     <div class="container my-5" id="course">
-                        <h3 class="text-center fw-bolder heading-color">Our Courses</h3>
-                        <p class="text-center text-info pb-4">
-                            <small>
-                                We provide the best quality and ensures your extra care if
-                                needed.
-                            </small>
-                        </p>
+                        <h3 class="text-center fs-2 fw-bolder heading-color mb-5">Our Courses</h3>
+
                         @if(!$courses->isEmpty())
                         <div
                             id="carouselExampleControls"
@@ -281,7 +271,7 @@
                                         <p>Price : {{ $course->price }} BDT</p>
                                         <p>Class : {{ $course->class_no }} </p>
                                         <p>Duration : {{ $course->duration }} hours </p>
-                                        <a href="" class="text-decoration-none text-warning">
+                                        <a href="" class="text-decoration-none learn-text">
                                             Learn More
                                         </a>
                                     </div>
@@ -295,10 +285,58 @@
                         <div><p>There is no course available now</p></div>
                         @endif
                     </div>
+
+                    <div class="container-fluid">
+
+                        <h3 class="fw-bolder heading-color text-center  ms-4">
+
+                            We are providing best <br /> training service
+
+                        </h3>
+
+                        <p class="text-info text-center mb-3">
+
+                            <small>
+
+                                We provide the best training cause we know your every effort
+
+                                counts.{" "}
+
+                            </small>
+
+                        </p>
+
+                        <div class="d-flex justify-content-center align-items-center bg-dark p-5">
+
+                            <div class="embed-responsive embed-responsive-16by9 ">
+
+                                <iframe
+
+                                    id="video-size"
+
+                                    src="https://www.youtube.com/embed/s27mY8pxBd8"
+
+                                    title="YouTube video player"
+
+                                    frameborder="0"
+
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+
+                                    allowfullscreen
+
+                                ></iframe>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
                     <div id="career">
                         <div class="form-banner pt-5">
                             <div class="heading">
-                                <h3 class="fw-bolder heading heading-color  ms-4">
+                                <h3 class="fw-bolder heading heading-color fs-2 ms-4">
                                     Need Career Counselling?
                                 </h3>
                             </div>
@@ -322,22 +360,37 @@
                                                 <select name="subject" id="" class="form-control">
                                                     <option value="">Select</option>
                                                     <option value="Career in Web Develpment - Laravel">
-                                                        Career in Web Develpment - Laravel
+                                                        Career in Web Development - Laravel
                                                     </option>
                                                     <option value="Career in Web Develpment - Django">
-                                                        Career in Web Develpment - Django
+                                                        Career in Web Development - Django
                                                     </option>
-                                                    <option value="Machine Learning and it's Career">
-                                                        Machine Learning and it's Career
+                                                    <option value="Career in Machine Learning">
+                                                        Career in Machine Learning
+                                                    </option>
+                                                    <option value="Career in Artificial Intelligence">
+                                                        Career in Artificial Intelligence
                                                     </option>
                                                     <option value="Data Science and it's Career">
                                                         Data Science and it's Career
                                                     </option>
-                                                    <option value="UI/UX">
+                                                    <option value="Career in UI/UX">
                                                         Career in UI/UX
                                                     </option>
                                                     <option value="Career in Graphics Design">
                                                         Career in Graphics Design
+                                                    </option>
+                                                    <option value="Python Development">
+                                                        Python Development
+                                                    </option>
+                                                    <option value="Career in Graphics Design">
+                                                        Career in Graphics Design
+                                                    </option>
+                                                    <option value="Spoken English">
+                                                        Spoken English
+                                                    </option>
+                                                    <option value="IELTS Preparation">
+                                                        IELTS Preparation
                                                     </option>
                                                 </select>
                                             </div>
@@ -372,7 +425,7 @@
                                     <img src="assets/asset/image/ceo.png" alt=""/>
                                 </div>
                                 <div class="team-content">
-                                    <h3 class="">Ashley Fletcher</h3>
+                                    <h3 class="">Nafiul Akbar</h3>
                                     <p class="text-info text">CEO</p>
                                     <div>
                                         <i class="fab fa-facebook text-primary"></i>
@@ -382,12 +435,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="our-team">
+                            < div class="our-team">
                                 <div class="team-pic">
                                     <img src="assets/asset/image/co-founder.png" alt=""/>
                                 </div>
                                 <div class="team-content">
-                                    <h3 class="mt-4">Avie Beaton</h3>
+                                    <h3 class="mt-4">Tasvir Faheem</h3>
                                     <p class="text-info text">CO Founder</p>
                                     <div>
                                         <i class="fab fa-facebook text-primary"></i>
@@ -402,7 +455,7 @@
                                     <img src="assets/asset/image/co ordinator.png" alt=""/>
                                 </div>
                                 <div class="team-content">
-                                    <h3 class="">Ben Jonson</h3>
+                                    <h3 class="">Faheem Ahmed</h3>
                                     <p class="text-info text">Consultant</p>
                                     <div>
                                         <i class="fab fa-facebook text-primary"></i>
@@ -417,7 +470,7 @@
 
                     <footer>
                         <div class="container" id="contact">
-                            <div class="d-flex justify-content-between flex-wrap mt-5 border-bottom">
+                            <div class="d-flex justify-content-between flex-wrap border-bottom">
                                 <p class="text text-white">IIHT Bangladesh</p>
                                 <p class="text text-white">
                                     Follow us <i class="fab fa-facebook ms-2"></i>
@@ -449,7 +502,7 @@
                                     </p>
                                     <p>
                                         <small class=" text-white">
-                                            Dhaka Devision, Bangladesh
+                                            Dhaka Division, Bangladesh
                                         </small>
                                     </p>
                                 </div>

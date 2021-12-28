@@ -115,6 +115,7 @@
       <path value="$PROJECT_DIR$/vendor/vendor/jquery-easing" />
       <path value="$PROJECT_DIR$/vendor/vendor/datatables" />
       <path value="$PROJECT_DIR$/vendor/vendor/fontawesome-free" />
+      <path value="$PROJECT_DIR$/vendor/artesaos/seotools" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
