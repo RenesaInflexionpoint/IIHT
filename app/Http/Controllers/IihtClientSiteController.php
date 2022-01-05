@@ -44,6 +44,14 @@ class IihtClientSiteController extends Controller
 
     public function bookedSeat(Request $request)
     {
+
+        $test = \request()->validate([
+            'course_id' => 'required',
+            'slot_id' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+        ]);
+
         $inputs = [
             'course_id' => $request->course_id,
             'slot_id' => $request->slot_id,
@@ -51,15 +59,18 @@ class IihtClientSiteController extends Controller
             'name' => $request->name,
             'email' => $request->email,
         ];
+
         $user_name = $request->name;
         $user_email = $request->email;
+
         StudentDetails::create($inputs);
 
         Mail::send('iihtClientSite.confirmStudentMail', $inputs, function ($message) use($user_name, $user_email) {
             $message->to($user_email,$user_name)->subject("Approval Notice for Booked Seat")
             ->from("inflexionpointbd@gmail.com");
         });
-        return redirect()->back();
+        return redirect()->back()->with('message', 'You Booked Your Seat Successfully!');
+
 
     }
 

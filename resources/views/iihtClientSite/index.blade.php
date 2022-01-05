@@ -8,189 +8,194 @@
                 <section>
                     <div class="main-image">
                         <div class="container pt-4">
+                            @if(session()->has('message'))
+                            <div class="alert alert-success">
+                            {{ session()->get('message') }}
+                            </div>
+                            @endif
                             <nav class="navbar navbar-expand-lg navbar-dark nav-bg nav-border ">
-                                <div class="container-fluid">
-                                    <a class="navbar-brand ps-3" href="#">
-                                        IIHT BD
-                                    </a>
-                                    <button
-                                        class="navbar-toggler"
-                                        type="button"
-                                        data-bs-toggle="collapse"
-                                        data-bs-target="#navbarSupportedContent"
-                                        aria-controls="navbarSupportedContent"
-                                        aria-expanded="false"
-                                        aria-label="Toggle navigation"
-                                    >
-                                        <span class="navbar-toggler-icon"></span>
-                                    </button>
-                                    <div
-                                        class="collapse navbar-collapse"
-                                        id="navbarSupportedContent"
-                                    >
-                                        <div class="ms-auto">
-                                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                                <li class="nav-item pe-3">
-                                                    <a
-                                                        class="nav-link active nav-font"
-                                                        aria-current="page"
-                                                        href="#"
-                                                    >
-                                                        Home
-                                                    </a>
-                                                </li>
-
-                                                <li class="nav-item pe-3">
-                                                    <a
-                                                        class="nav-link active nav-font"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#exampleModal"
-                                                        aria-current="page"
-                                                        id=""
-                                                        href="#"
-                                                    >
-                                                        Admission
-                                                    </a>
-                                                </li>
-
-                                                <div
-                                                    class="modal fade"
-                                                    id="exampleModal"
-                                                    tabindex="-1"
-                                                    aria-labelledby="exampleModalLabel"
-                                                    aria-hidden="true"
+                            <div class="container-fluid">
+                                <a class="navbar-brand ps-3" href="#">
+                                    IIHT BD
+                                </a>
+                                <button
+                                    class="navbar-toggler"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#navbarSupportedContent"
+                                    aria-controls="navbarSupportedContent"
+                                    aria-expanded="false"
+                                    aria-label="Toggle navigation"
+                                >
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div
+                                    class="collapse navbar-collapse"
+                                    id="navbarSupportedContent"
+                                >
+                                    <div class="ms-auto">
+                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                            <li class="nav-item pe-3">
+                                                <a
+                                                    class="nav-link active nav-font"
+                                                    aria-current="page"
+                                                    href="#"
                                                 >
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header bg-modal text-center">
-                                                                <h5
-                                                                    class="modal-title w-100 text-center text-white text"
-                                                                    id="exampleModalLabel"
-                                                                >
-                                                                    Book Your Seat
-                                                                </h5>
-                                                                <button
-                                                                    type="button"
-                                                                    class="btn-close"
-                                                                    data-bs-dismiss="modal"
-                                                                    aria-label="Close"
-                                                                ></button>
-                                                            </div>
-                                                            <form action="{{ route('booked.seat') }}" method="POST">
-                                                                <input type="hidden" name="_token"
-                                                                       value="{{ csrf_token() }}"/>
-                                                                <meta name="csrf-token" content="{{ csrf_token() }}"/>
-                                                                <div class="modal-body">
-                                                                    <div
-                                                                        class="d-flex justify-content-center align-items-center">
-                                                                        <div class="shadow-lg p-4">
-                                                                            <div class="mb-3 row">
-                                                                                <label for="inputtext"
-                                                                                       class="col-sm-2 col-form-label text ">Name</label>
-                                                                                <div class="col-sm-10">
-                                                                                    <input type="text"
-                                                                                           class="form-control"
-                                                                                           name="name" id="inputName"/>
-                                                                                </div>
+                                                    Home
+                                                </a>
+                                            </li>
+
+                                            <li class="nav-item pe-3">
+                                                <a
+                                                    class="nav-link active nav-font"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal"
+                                                    aria-current="page"
+                                                    id=""
+                                                    href="#"
+                                                >
+                                                    Admission
+                                                </a>
+                                            </li>
+
+                                            <div
+                                                class="modal fade"
+                                                id="exampleModal"
+                                                tabindex="-1"
+                                                aria-labelledby="exampleModalLabel"
+                                                aria-hidden="true"
+                                            >
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header bg-modal text-center">
+                                                            <h5
+                                                                class="modal-title w-100 text-center text-white text"
+                                                                id="exampleModalLabel"
+                                                            >
+                                                                Book Your Seat
+                                                            </h5>
+                                                            <button
+                                                                type="button"
+                                                                class="btn-close"
+                                                                data-bs-dismiss="modal"
+                                                                aria-label="Close"
+                                                            ></button>
+                                                        </div>
+                                                        <form action="{{ route('booked.seat') }}" method="POST">
+                                                            <input type="hidden" name="_token"
+                                                                   value="{{ csrf_token() }}"/>
+                                                            <meta name="csrf-token" content="{{ csrf_token() }}"/>
+                                                            <div class="modal-body">
+                                                                <div
+                                                                    class="d-flex justify-content-center align-items-center">
+                                                                    <div class="shadow-lg p-4">
+                                                                        <div class="mb-3 row">
+                                                                            <label for="inputtext"
+                                                                                   class="col-sm-2 col-form-label text ">Name</label>
+                                                                            <div class="col-sm-10">
+                                                                                <input type="text"
+                                                                                       class="form-control"
+                                                                                       name="name" id="inputName"/>
                                                                             </div>
-                                                                            <div class="mb-3 row">
-                                                                                <label for="inputtext"
-                                                                                       class="col-sm-2 col-form-label text ">Email</label>
-                                                                                <div class="col-sm-10">
-                                                                                    <input type="email"
-                                                                                           class="form-control"
-                                                                                           name="email" id="inputName"/>
-                                                                                </div>
+                                                                        </div>
+                                                                        <div class="mb-3 row">
+                                                                            <label for="inputtext"
+                                                                                   class="col-sm-2 col-form-label text ">Email</label>
+                                                                            <div class="col-sm-10">
+                                                                                <input type="email"
+                                                                                       class="form-control"
+                                                                                       name="email" id="inputName"/>
                                                                             </div>
-                                                                            <div class="row">
-                                                                                <div class="col-md-6 col-12">
-                                                                                    <div class="custom-select ">
-                                                                                        <label for="inputtext"
-                                                                                               class="col-sm-2 col-form-label text text-white">Courses</label>
-                                                                                        <span class="ps-5">
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-6 col-12">
+                                                                                <div class="custom-select ">
+                                                                                    <label for="inputtext"
+                                                                                           class="col-sm-2 col-form-label text text-white">Courses</label>
+                                                                                    <span class="ps-5">
                                                 <select class="form-select" name='course_id' id='courseId'>
                                                 @foreach ($courseList as $key => $value)
                                                 <option value='{{$key}}'>{{$value}}</option>
                                                     @endforeach
                                                 </select>
                                             </span>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-md-6 col-12"
-                                                                                     id="showCourseSlot">
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="d-flex justify-content-center">
-                                                                                <a href=""
-                                                                                   class="text-decoration-none mt-3">
-                                                                                    {" "}
-                                                                                    <button id="alert" type="submit"
-                                                                                            class="btn bg-warning rounded-pill px-5 text">Confirm
-                                                                                        your seat
-                                                                                    </button>
-                                                                                </a>
+                                                                            <div class="col-md-6 col-12"
+                                                                                 id="showCourseSlot">
                                                                             </div>
+                                                                        </div>
+                                                                        <div class="d-flex justify-content-center">
+                                                                            <a href=""
+                                                                               class="text-decoration-none mt-3">
+                                                                                {" "}
+                                                                                <button id="alert" type="submit"
+                                                                                        class="btn bg-warning rounded-pill px-5 text">Confirm
+                                                                                    your seat
+                                                                                </button>
+                                                                            </a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </form>
-                                                            <div
-                                                                class="modal-footer d-flex justify-content-center bg-modal">
-                                                                <div class=" py-3"></div>
                                                             </div>
+                                                        </form>
+                                                        <div
+                                                            class="modal-footer d-flex justify-content-center bg-modal">
+                                                            <div class=" py-3"></div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <li class="nav-item pe-3">
-                                                    <a
-                                                        class="nav-link active nav-font"
-                                                        aria-current="page"
-                                                        href="#about"
-                                                    >
-                                                        About Us
-                                                    </a>
-                                                </li>
+                                            </div>
+                                            <li class="nav-item pe-3">
+                                                <a
+                                                    class="nav-link active nav-font"
+                                                    aria-current="page"
+                                                    href="#about"
+                                                >
+                                                    About Us
+                                                </a>
+                                            </li>
 
-                                                <li class="nav-item pe-3">
-                                                    <a
-                                                        class="nav-link active nav-font"
-                                                        aria-current="page"
-                                                        href="#course"
-                                                    >
-                                                        Courses
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item pe-3">
-                                                    <a
-                                                        class="nav-link active nav-font"
-                                                        aria-current="page"
-                                                        href="#contact"
-                                                    >
-                                                        Contact Us
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item pe-3">
-                                                    <a
-                                                        class="nav-link active nav-font"
-                                                        aria-current="page"
-                                                        href="#"
-                                                    >
-                                                        Booking<i class="fas fa-shopping-cart"></i>
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item pe-3">
-                                                    <a
-                                                        class="nav-link active nav-font"
-                                                        aria-current="page"
-                                                        href="#career"
-                                                    >
-                                                        Career Counselling
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                            <li class="nav-item pe-3">
+                                                <a
+                                                    class="nav-link active nav-font"
+                                                    aria-current="page"
+                                                    href="#course"
+                                                >
+                                                    Courses
+                                                </a>
+                                            </li>
+                                            <li class="nav-item pe-3">
+                                                <a
+                                                    class="nav-link active nav-font"
+                                                    aria-current="page"
+                                                    href="#contact"
+                                                >
+                                                    Contact Us
+                                                </a>
+                                            </li>
+                                            <li class="nav-item pe-3">
+                                                <a
+                                                    class="nav-link active nav-font"
+                                                    aria-current="page"
+                                                    href="#"
+                                                >
+                                                    Booking<i class="fas fa-shopping-cart"></i>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item pe-3">
+                                                <a
+                                                    class="nav-link active nav-font"
+                                                    aria-current="page"
+                                                    href="#career"
+                                                >
+                                                    Career Counselling
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
+                            </div>
                             </nav>
                         </div>
 
@@ -247,7 +252,17 @@
                     </div>
 
                     <div class="container my-5" id="course">
-                        <h3 class="text-center fs-2 fw-bolder heading-color mb-5">Our Courses</h3>
+                        <h3 class="text-center fs-2 fw-bolder heading-color mb-2">Our Courses</h3>
+                        <p class="text-secondary text-center mt-2 mb-5">
+
+                            <small clas="fw-3">
+
+                                We provide the best quality and ensures your extra care if needed.
+                                {" "}
+
+                            </small>
+
+                        </p>
 
                         @if(!$courses->isEmpty())
                         <div
@@ -257,17 +272,21 @@
                         >
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <div class="row g-5 mb-5">
+                                <div class="row g-3 mb-5">
                                     @foreach( $courses as $course )
                                     <div class="col-md-3 col-6 ">
                                     <div
-                                        class="d-flex justify-content-center align-items-center dev-bg-{{$color}} p-3  rounded-top">
-                                        <div class="border border-secondary rounded-circle p-2 me-2 bg-white">
+                                        class="d-flex justify-content-center align-items-center dev-bg-{{$color}} p-3 py-4 course-top ">
+
+                                        <div class="border border-secondary icon-round p-3 me-2 bg-white d-flex align-content-center justify-content-center">
                                             <i class="fas fa-users text-warning"></i>
                                         </div>
-                                        <p class="text-white">{{$course->name}}</p>
+                                        <div class="d-flex justify-content-center align-content-center">
+                                            <p class="text-white course-name ms-2">{{$course->name}}</p>
+                                        </div>
+
                                     </div>
-                                    <div class="p-3 shadow-lg rounded-bottom">
+                                    <div class="p-3 shadow-lg course-bottom text-secondary">
                                         <p>Price : {{ $course->price }} BDT</p>
                                         <p>Class : {{ $course->class_no }} </p>
                                         <p>Duration : {{ $course->duration }} hours </p>
@@ -286,7 +305,7 @@
                         @endif
                     </div>
 
-                    <div class="container-fluid">
+                    <div class="container-fluid ">
 
                         <h3 class="fw-bolder heading-color text-center  ms-4">
 
@@ -294,9 +313,9 @@
 
                         </h3>
 
-                        <p class="text-info text-center mb-3">
+                        <p class="text-secondary text-center mt-2 mb-4">
 
-                            <small>
+                            <small clas="fw-3">
 
                                 We provide the best training cause we know your every effort
 
@@ -306,7 +325,7 @@
 
                         </p>
 
-                        <div class="d-flex justify-content-center align-items-center bg-dark p-5">
+                        <div class="d-flex justify-content-center align-items-center video-banner p-5">
 
                             <div class="embed-responsive embed-responsive-16by9 ">
 
@@ -395,8 +414,8 @@
                                                 </select>
                                             </div>
                                             <div class="col-md-6 col-12 mb-2">
-                                                <input type="date" name="date" placeholder="Time" class="form-control"
-                                                       id="exampleInputEmail1" aria-describedby="emailHelp"/>
+                                                <input type="date" name="date" placeholder="Time" class="form-control selectDate"
+                                                       id="appDate" aria-describedby="emailHelp"/>
                                             </div>
                                         </div>
                                         <button type="submit" class="btn btn-warning text-white rounded-pill mt-3">Book
@@ -420,6 +439,7 @@
                             Meet Our Team Members
                         </h3>
                         <div class="container-team">
+
                             <div class="our-team">
                                 <div class="team-pic">
                                     <img src="assets/asset/image/ceo.png" alt=""/>
@@ -435,6 +455,8 @@
                                     </div>
                                 </div>
                             </div>
+
+
                             < div class="our-team">
                                 <div class="team-pic">
                                     <img src="assets/asset/image/co-founder.png" alt=""/>
@@ -473,7 +495,8 @@
                             <div class="d-flex justify-content-between flex-wrap border-bottom">
                                 <p class="text text-white">IIHT Bangladesh</p>
                                 <p class="text text-white">
-                                    Follow us <i class="fab fa-facebook ms-2"></i>
+                                    Follow us <a class="text-white" href="https://www.facebook.com/IIHTDhaka/"><i class="fab fa-facebook ms-2"></i></a>
+
                                     <i class="fab fa-instagram-square  mx-2"></i>
                                     <i class="fab fa-twitter-square me-2"></i>
                                     <i class="fab fa-youtube "></i>
@@ -563,12 +586,15 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-center align-items-center footer-copy-right">
-                            <p class="text-white py-3">
-                                <small>
-                                    <i class="far fa-copyright"></i> All Right Reserved By SiS
-                                    Inflexionpoint BD Ltd.{" "}
-                                </small>
-                            </p>
+                            <a href="https://sisinflexionpointbd.com/">
+                                <p class="text-white py-3">
+                                    <small>
+                                        <i class="far fa-copyright"></i> All Right Reserved By SiS
+                                        Inflexionpoint BD Ltd.{" "}
+                                    </small>
+                                </p>
+                            </a>
+
                         </div>
                     </footer>
                 </section>
@@ -619,6 +645,20 @@
                     App.unblockUI();
                 }
             });//ajax
+        });
+        $(document).on('change', '.selectDate', function () {
+            var todaysDate = new Date();
+            var inputDate = new Date($('#appDate').val());
+            if (todaysDate > inputDate) {
+                swal("Date must be greater than today's Date");
+                return false;
+            }
+        });
+
+        $("document").ready(function(){
+            setTimeout(function(){
+                $("div.alert").remove();
+            }, 5000 ); // 5 secs
         });
     </script>
     <script

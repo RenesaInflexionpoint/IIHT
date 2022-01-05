@@ -231,6 +231,37 @@ footer {
 { width: 700px;
     height: 400px;
 }
+.video-bg{
+    background-color: #130F32;
+}
+.video-banner {
+    background-image: url("image/SQAURE2.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: overlay;
+    height: 500px;
+    width: 100%;
+}
+.icon-round {
+    /*border-radius: 40px 40px 40px 40px;*/
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.course-top{
+    border-top-left-radius:10px;
+    border-top-right-radius:10px;
+}
+.course-bottom{
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px;
+}
+.course-name{
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-weight:bold
+}
 
 /* media query */
 @media (max-width: 750px) {
@@ -240,6 +271,7 @@ footer {
   .our-team {
     width: 80%;
     margin-top: 30px;
+      /*border-radius: 15px;*/
   }
   .btn2{
       margin-top: 0px;
