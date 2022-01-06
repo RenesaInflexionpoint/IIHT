@@ -16,7 +16,7 @@
                             <nav class="navbar navbar-expand-lg navbar-dark nav-bg nav-border ">
                             <div class="container-fluid">
                                 <a class="navbar-brand ps-3" href="#">
-                                    IIHT BD
+                                     IIHT BD
                                 </a>
                                 <button
                                     class="navbar-toggler"
@@ -216,13 +216,7 @@
                                                 Book Now
                                             </button>
                                         </a>
-
-                                        <a href="">
-                                            <button type="button"
-                                                    class="text-white border-info btn2  btn-color rounded-pill">
-                                                Learn More
-                                            </button>
-                                        </a>
+                                        
                                     </div>
 
 
@@ -290,9 +284,6 @@
                                         <p>Price : {{ $course->price }} BDT</p>
                                         <p>Class : {{ $course->class_no }} </p>
                                         <p>Duration : {{ $course->duration }} hours </p>
-                                        <a href="" class="text-decoration-none learn-text">
-                                            Learn More
-                                        </a>
                                     </div>
                                     </div>
                                     @endforeach
